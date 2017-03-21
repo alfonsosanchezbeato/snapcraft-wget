@@ -1,0 +1,40 @@
+name: demo-wget
+version: 1.17.1-2
+summary: retrieves files from the web
+description: |
+    Wget is a network utility to retrieve files from the web
+    using HTTP(S) and FTP, the two most widely used internet
+    protocols. It works non-interactively, so it will work in
+    the background, after having logged off. The program supports
+    recursive retrieval of web-authoring pages as well as FTP
+    sites -- you can use Wget to make mirrors of archives and
+    home pages or to travel the web like a WWW robot.
+confinement: strict
+grade: stable
+
+apps:
+    wget:
+        command: usr/bin/wget
+        aliases:
+            - wget
+        plugs: 
+            - network-bind
+            - home
+
+parts:
+    wget:
+        # Get more information about plugins by running
+        # snapcraft help plugins
+        # and more information about the available plugins
+        # by running
+        # snapcraft list-plugins
+        plugin: nil
+        stage-packages:
+            - libidn11
+            - libpcre3
+            - libssl1.0.0
+            - libuuid1
+            - zlib1g
+            - wget
+        prime:
+            - -usr/include
