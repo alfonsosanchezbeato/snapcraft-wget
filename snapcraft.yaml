@@ -1,6 +1,7 @@
 name: demo-wget
 version: 1.17.1-2
 summary: retrieves files from the web
+base: core20
 description: |
     Wget is a network utility to retrieve files from the web
     using HTTP(S) and FTP, the two most widely used internet
@@ -15,8 +16,6 @@ grade: stable
 apps:
     wget:
         command: usr/bin/wget
-        aliases:
-            - wget
         plugs: 
             - network-bind
             - home
@@ -32,7 +31,7 @@ parts:
         stage-packages:
             - libidn11
             - libpcre3
-            - libssl1.0.0
+            - libssl1.1
             - libuuid1
             - zlib1g
             - wget
